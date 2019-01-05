@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="utf-8">
+      <title>Show</title>
+              {% load static %} 
+      <link rel="stylesheet" href="{% static 'default/css/style.css' %}">
+      <script>
+		function goBack() {
+    	window.history.back();}
+	</script>    
+    </head>
+    <body>
+    	<div class="menu">
+            <a href="users/logout" class="logout">Logout</a>
+            <button onclick="goBack()" class="goback">Go Back</button>
+        </div>
+    	<h1 class="job_name_in_view"> Job: {{J.job}}</h1>
+    	<div class="wrap">
+	    	<h1> Description: {{J.desc}}</h1>
+	    	<h1> Location: {{J.location}}</h1>
+	    	<h1> Posted by: {{J.uploader.first_name}} {{J.uploader.last_name}}</h1>
+	    	<h1> Posted at: {{J.created_at}}</h1>
+    	</div>
+      
+    </body>
+  </html>
+

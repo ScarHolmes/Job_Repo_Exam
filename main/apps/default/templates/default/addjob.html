@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add Job</title>
+    {% load static %} 
+    <link rel="stylesheet" href="{% static 'default/css/style.css' %}">  
+    <script>
+    function goBack() {
+    window.history.back();}
+  </script> 
+</head>
+<body>
+  {% if messages %}
+        <ul class="messages">
+        {% for message in messages %}
+          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+  <div class="menu">
+    <a href="users/logout" class="logout">Logout</a>
+    <button onclick="goBack()" class="goback">Go Back</button>
+  </div>
+  <div class="add_job">
+    <h1> Edit a Job </h1>
+    <form action = 'process' method='post'>
+        {% csrf_token %}
+        Job<input type="text" name="job" placeholder="job" id="job">
+        Description<input type="text" name="desc" placeholder="desc" id="desc">
+        Location<input type="text" name="location" placeholder="location" id="location">
+
+        <input type="submit" value="Submit" id='submit1'>
+    </form>
+  </div>
+    
+</body>
+</html>

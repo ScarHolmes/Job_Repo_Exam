@@ -1,0 +1,65 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Success</title>
+    <link rel="stylesheet" href="{% static 'default/css/style.css' %}">
+</head>
+<body>
+     {% if messages %}
+        <ul class="messages">
+        {% for message in messages %}
+          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    <div class="container">
+        <div class="menu">
+            <h3>Hello, {{request.session.first_name}}</h3>
+            <a href="users/logout">Logout</a>
+        </div>
+        <a href="/addjob" class="addaJob"> Add a Job </a><br>
+    <div class = "table_holder">
+        <h1> Current Jobs Available</h1>
+        <table>
+            <tr>
+                <th> Job Title </th>
+                <th> Job Location</th>
+                <th> Action </th>
+            </tr>
+        {% for jobs in show_job %}
+            <tr>
+                <td>{{jobs.job}}</td>
+                <td>{{jobs.location}}</td>
+                <td class=action><a href="{% url 'show_job' id=jobs.id%}">View</a>
+                    {% if jobs.uploader.id == request.session.id %}
+                     <form action = 'delete' method='post' class="form_delete">
+                    {% csrf_token %}
+                        <input type="hidden" value={{jobs.id}} name="displayJobid">
+                         <input type="submit" value="Delete" id='submit1'>
+                    </form>
+                     <a href="{%url 'my_edit' id=jobs.id %}"> edit </td></a>
+            </tr>
+           {%endif%}
+            {% endfor %}
+        </table>
+    </div>
+    <div class="my_jobs">
+        <h1> My Jobs </h1>
+        <table>
+            <tr>
+                <th> My Jobs </th>
+                <th> Job Location</th>
+                <th> Action </th>
+            </tr>
+                <td>a job</td>
+                <td>thi sjobs location</td>
+                <td>View        Cancel</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

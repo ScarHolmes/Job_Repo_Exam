@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="utf-8">
+      <title>Edit</title>
+       {% load static %} 
+    <link rel="stylesheet" href="{% static 'default/css/style.css' %}">   
+    <script>
+    function goBack() {
+    window.history.back();}
+  </script>   
+    </head>
+    <body>
+      <div class="menu">
+        <a href="users/logout" class="logout">Logout</a>
+        <button onclick="goBack()" class="goback">Go Back</button>
+      </div>
+      <form action='/edit_u' method='post'>
+        {% csrf_token %}
+        <h3> Edit </h3>
+        Title<input type="text" name="job" value="{{J.job}}" id="job">
+        Descrption<input type="text" name="desc" value="{{J.desc}}"" id="description">
+        Location <input type="text" name="loaction" value="{{J.location}}"" id="location"placeholder="email">
+        <input type="hidden" value={{J.id}} name="Jobid">
+        <input type="submit" value="Submit" id='submit'>
+      
+    </body>
+  </html>

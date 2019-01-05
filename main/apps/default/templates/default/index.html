@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="utf-8">
+      <title>Index</title>
+      {% load static %}
+      <link rel="stylesheet" href="{% static 'default/css/style.css' %}">  
+      <script>
+      function goBack() {
+      window.history.back();}
+    </script> 
+    </head>
+    <body>
+      {% if messages %}
+        <ul class="messages">
+        {% for message in messages %}
+          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+      <div class= "wrapper">
+        <div class="reg">
+          <form action='register' method='post'>
+            {% csrf_token %}
+            <h3> Register </h3>
+            <h2>first name</h2><input type="text" name="first_name" placeholder="First Name" id=first_name>
+            <h2>last name</h2><input type="text" name="last_name" placeholder="Last Name" id=last_name>
+            <h2>email</h2> <input type="text" name="email" id=email placeholder="email">
+            <h2>password</h2><input type="password" name="password" placeholder="password">
+            <input type="hidden" name="action" value="register">
+            <input type="submit" value="Submit" id='submit'>
+          </form>
+        </div>
+        <div class="log">
+          <h3> SIGN IN </h3>
+          <form action ='login' method='post'>
+            {% csrf_token %}
+            <h2>email</h2><input type="text" name="email" placeholder="email" id=email1>
+            <h2>password</h2><input type="password" name="password" placeholder="password">
+            <input type="submit" value="Submit" id='submit1'>
+            <input type="hidden" name="action" value="login">
+          </form>
+        </div>
+    </div>
+    </body>
+  </html>

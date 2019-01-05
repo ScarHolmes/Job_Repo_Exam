@@ -1,0 +1,79 @@
+table {
+    font-family: arial, sans-serif;
+    display: inline-block;
+
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+.menu h3{
+	display: inline-block;
+	margin-right: 400px;
+}
+.wrapper{
+	margin-left: 300px;
+}
+.my_jobs{
+	display: inline-block;
+    vertical-align: top;
+    margin-left: 200px;
+}
+.table_holder{
+	display: inline-block;
+}
+.action{
+	width: 300px;
+}
+.form_delete{
+	margin: 13px;
+    display: inline-block;
+}
+input[type=text]{
+	display: block;
+}
+input[type=submit]{
+	display: block;
+    color: white;
+    background: green;
+    margin-top: 30px;
+}
+.log{
+	display: inline-block;
+    vertical-align: top;
+    margin-left: 300px;
+}
+.reg{
+	display: inline-block;
+}
+.wrap{
+	border: 1px solid black;
+    width: 500px;
+    margin: auto;
+}
+.job_name_in_view{
+	width: 500px;
+    margin: auto;
+}
+.logout{
+	font-size: 20px;
+    margin-left: 30px;
+}
+.goback{
+	margin-left: 40px;
+}
+.addaJob{
+	font-size: 30px;
+    color: red;
+    text-decoration: none;
+    text-align: right;
+    padding: 30px;
+    display: block;
+    margin-right: 300px;
+}
